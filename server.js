@@ -7,7 +7,7 @@ const expressLayout=require('express-ejs-layouts');
 
 const PORT= 3000;//ye env wala tab  hoga jab hamara production ke liye hoga  || process.env.PORT ||
 
-
+app.use(express.static('public'));
 app.get('/', (req,res)=>{
     res.render('home');
 })
@@ -16,6 +16,7 @@ app.get('/', (req,res)=>{
 app.use(expressLayout);
 app.set('views',path.join(__dirname,'/resources/views'));
 app.set('view engine','ejs');
+
 
 
 
