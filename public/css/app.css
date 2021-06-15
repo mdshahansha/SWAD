@@ -22,7 +22,12 @@ nav li a:hover {
 
 .image {
   width: 100px;
-  height: 100px;
+  height: 80px;
+}
+
+.imageSW {
+  width: 140px;
+  height: 70px;
 }
 
 .imagehero {
