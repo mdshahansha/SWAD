@@ -1,1 +1,38 @@
- 
+@import './variable';
+
+body{
+    font-family:'Lato',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    color:dark;
+}
+nav li:last-child a{
+    background:$primary;
+
+    &:hover{
+        background :$primary-hover
+    }
+    }
+
+
+
+nav li a{
+    transition :all .3s ease-in-out;
+    &:hover{
+    color:$primary;
+}
+}
+.image{
+    width: 100px;
+    height:100px;
+}
+
+.imagehero{
+    width: 400px;
+    height:400px;
+}
+section.gero{
+    background:$secondary;
+}
+.size{
+    background:$secondary;
+}
