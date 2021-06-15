@@ -69,7 +69,12 @@ section.cart {
   transition: all 0.3s ease-in-out;
 }
 
-section.cart:hover {
-  background: #b23301;
+section.cart .amount {
+  color: #FE5F1E;
+}
+
+section.login {
+  background: #e6d6d6;
+  min-height: cals(100vh);
 }
 

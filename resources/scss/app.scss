@@ -65,7 +65,18 @@ section.gero{
 section.cart{
     background: $secondary;
     transition: $smooth;
-    &:hover{
-        background: $primary-hover;
+    .amount{
+        color:$primary;
+    }  
+}
+
+section.login{
+    background: $secondary;
+    min-height: cals(100vh-89px);
+    a{
+        color:$primary;
+        &:hover{
+            color: $primary-hover;
+        }
     }
 }
