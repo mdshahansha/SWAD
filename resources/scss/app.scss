@@ -22,8 +22,8 @@ nav li a{
 }
 }
 .image{
-    width: 100px;
-    height:80px;
+    width: 60px;
+    height:50px;
 }
 
 .imageSW{
@@ -55,6 +55,15 @@ section.gero{
 
 .btn-primary{
     background:$primary;
+    transition: $smooth;
+    &:hover{
+        background: $primary-hover;
+    }
+}
+
+
+section.cart{
+    background: $secondary;
     transition: $smooth;
     &:hover{
         background: $primary-hover;

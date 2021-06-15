@@ -21,8 +21,8 @@ nav li a:hover {
 }
 
 .image {
-  width: 100px;
-  height: 80px;
+  width: 60px;
+  height: 50px;
 }
 
 .imageSW {
@@ -36,11 +36,11 @@ nav li a:hover {
 }
 
 section.gero {
-  background: #F8F8F8;
+  background: #e6d6d6;
 }
 
 .size {
-  background: #F8F8F8;
+  background: #e6d6d6;
 }
 
 .add-to-cart {
@@ -51,8 +51,8 @@ section.gero {
 
 .add-to-cart:hover {
   background: #FE5F1E;
-  border-color: #fff;
-  color: #fff;
+  border-color: #331313;
+  color: #331313;
 }
 
 .btn-primary {
@@ -61,6 +61,15 @@ section.gero {
 }
 
 .btn-primary:hover {
+  background: #b23301;
+}
+
+section.cart {
+  background: #e6d6d6;
+  transition: all 0.3s ease-in-out;
+}
+
+section.cart:hover {
   background: #b23301;
 }
 
