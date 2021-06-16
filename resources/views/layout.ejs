@@ -27,9 +27,13 @@
                 <li class="ml-6"><a href="/register">Register</a> </li>
                 <li class="ml-6"><a href="/login">Login</a> </li>
                 <li class="ml-6"><a href="#">Sign Up</a> </li>
-                <li class="ml-6 h-28 "><a href="/cart" class="inline-block px-4 py-2 rounded-full   "><img
+                <li class="ml-6 h-28 "><a href="/cart" class="inline-block px-4 py-2 rounded-full  flex items-centre ">
+                    <span id="cartContainer" class="text-white font-bold"> <%= session.cart ? session.cart.totalQty:'' %> </span>
+                    <img
                             class="image  object-scale-down h-28 w-full"
-                            src="https://image.flaticon.com/icons/png/512/1277/1277803.png"> </a> </li>
+                             
+                            src="https://image.flaticon.com/icons/png/512/1277/1277803.png">
+                            </a> </li>
             </ul>
         </div>
     </nav>

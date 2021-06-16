@@ -1,4 +1,8 @@
 <section class="cart py-16 mt-24">
+    <% if(session.cart) {%>
+
+
+
    <div class="order container mx-auto w-1/2">
        <div class="flex items-centre border-b border-gray-300 h-20  pb-4">
            <img src="https://image.flaticon.com/icons/png/512/891/891420.png" alt>
@@ -30,15 +34,19 @@
     </div>
 
     <div class="pizza-list">
+        <% for(let pizza of Object.values(session.cart.items)) {%>
+
+           
         <div class="flex items-centre my-8">
             <img class="w-24" src=" https://image.flaticon.com/icons/png/512/2934/2934108.png" alt="">
             <div  class="flex-1 ml-4">
-                <h1>food1</h1>
-                <span>Medium</span>
+                <h1><%= pizza.item.name %></h1>
+                <span><%= pizza.item.name %></span>
             </div>
-            <span class="flex-1">1 Pcs</span>
-            <span class="font-bold text-lg">₹ 200</span>
+            <span class="flex-1"><%= pizza.qty %></span>
+            <span class="font-bold text-lg">₹ <%= pizza.item.price * pizza.qty %></span>
         </div>
+        <% } %>
     </div>
 
     <hr>
@@ -49,8 +57,8 @@
                         <span class="text-lg bold ">
                             Total Have you to Pay
                         </span>
-                        <span class="amount text-2xl font-bold">
-                            ₹ 600
+                        <span class="amount text-2xl font-bold ml-2">
+                            ₹ <%= session.cart.totalPrice %>
                         </span>
                     </div>
                     <div>
@@ -66,7 +74,14 @@
                 </div>
    </div>
    
-    <!-- <div class="empty-cart py-16">
+    
+<% }else{ %>
+   
+
+
+<!--  -->
+
+<div class="empty-cart py-16">
     <div class="container mx-auto text-centre">
         <h1 class="text-3xl font-bold mb-2">Cart Empty</h1>
 
@@ -84,5 +99,7 @@
    
    
     </div>
-</div> -->
+</div>
+<% } %>
+
 </section>
