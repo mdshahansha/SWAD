@@ -75,7 +75,6 @@ section.cart .amount {
 
 section.login {
   background: #e6d6d6;
-  min-height: cals(100vh-px);
 }
 
 section.login a {
