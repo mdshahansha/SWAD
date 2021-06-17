@@ -10,9 +10,11 @@ function authController() {
         login(req, res) {
             res.render('auth/login')
         },
-        postLogin(req, res, next) {
+        postLogin(req, res, next)
+         {
             const { email, password }   = req.body
-           // Validate request 
+           
+            // Validate request 
             if(!email || !password) {
                 req.flash('error', 'All fields are required')
                 return res.redirect('/login')
