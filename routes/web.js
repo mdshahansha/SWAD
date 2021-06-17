@@ -14,6 +14,8 @@ app.get('/login',authController().login );
 
 app.get('/register', authController().register);
 
+app.get('/register', authController().postRegister);
+
 app.get('/cart', cartController().index);
 
 app.post('/update-cart', cartController().update);
