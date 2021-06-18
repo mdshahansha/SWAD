@@ -10,11 +10,9 @@ function authController() {
         login(req, res) {
             res.render('auth/login')
         },
-        postLogin(req, res, next)
-         {
+        postLogin(req, res, next) {
             const { email, password }   = req.body
-           
-            // Validate request 
+           // Validate request 
             if(!email || !password) {
                 req.flash('error', 'All fields are required')
                 return res.redirect('/login')
@@ -33,7 +31,7 @@ function authController() {
                         req.flash('error', info.message ) 
                         return next(err)
                     }
-
+                    // private mentod h taki iske andar ye check kare ki jo user h uska  role kn sa h
                     return res.redirect(_getRedirectUrl(req))
                 })
             })(req, res, next)
