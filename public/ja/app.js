@@ -26923,10 +26923,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
-/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_admin__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_admin__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 !(function webpackMissingModule() { var e = new Error("Cannot find module './stripe'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -27002,7 +27002,7 @@ function updateStatus(order) {
 
     if (dataProp === order.status) {
       stepCompleted = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_4___default()(order.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_3___default()(order.updatedAt).format('hh:mm A');
       status.appendChild(time);
 
       if (status.nextElementSibling) {
@@ -27024,14 +27024,14 @@ if (order) {
 var adminAreaPath = window.location.pathname;
 
 if (adminAreaPath.includes('admin')) {
-  Object(_admin__WEBPACK_IMPORTED_MODULE_3__["initAdmin"])(socket);
+  Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket);
   socket.emit('join', 'adminRoom');
 }
 
 socket.on('orderUpdated', function (data) {
   var updatedOrder = _objectSpread({}, order);
 
-  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_4___default()().format();
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_3___default()().format();
   updatedOrder.status = data.status;
   updateStatus(updatedOrder);
   new noty__WEBPACK_IMPORTED_MODULE_1___default.a({

@@ -64,6 +64,7 @@ app.use(expressLayout)
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs')
 
+//all routes house
 require('./routes/web')(app)
 app.use((req, res) => {
     res.status(404).render('errors/404')
