@@ -15,6 +15,8 @@
         console.log(err)
     })
 
+
+    // items ko le rhi ye function uska  frray render kar rhe h
     function renderItems(items) {
         let parsedItems = Object.values(items)
         return parsedItems.map((menuItem) => {
@@ -35,6 +37,7 @@
                 <td class="border px-4 py-2">${ order.customerId.name }</td>
                 <td class="border px-4 py-2">${ order.address }</td>
                 <td class="border px-4 py-2">
+
                     <div class="inline-block relative w-64">
                         <form action="/admin/order/status" method="POST">
                             <input type="hidden" name="orderId" value="${ order._id }">
@@ -74,4 +77,5 @@
             </tr>
         `
         }).join('')
+        // join('') METHOD n  mtlb -> ek hiw  string me use dale rhe  or add kar rhe h
     }
