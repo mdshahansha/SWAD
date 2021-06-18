@@ -53,10 +53,12 @@ function orderController () {
                 return res.status(500).json({ message : 'Something went wrong' });
             })
         },
+        // 
         async index(req, res) {
             const orders = await Order.find({ customerId: req.user._id },
                 null,
                 { sort: { 'createdAt': -1 } } )
+                // koi bhi cache  nhi  chiye  jab dobara h 
             res.header('Cache-Control', 'no-store')
             res.render('customers/orders', { orders: orders, moment: moment })
         },
