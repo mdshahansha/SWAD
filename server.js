@@ -28,9 +28,9 @@ let mongoStore = new MongoDbStore({
                 collection: 'sessions'
             })
 
-// // Event emitter
-// const eventEmitter = new Emitter()
-// app.set('eventEmitter', eventEmitter)
+// Event emitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter)
 
 // Session config
 app.use(session({
@@ -86,7 +86,7 @@ io.on('connection', (socket) => {
 })
 
 eventEmitter.on('orderUpdated', (data) => {
-    io.to(`order_${data.id}`).emit('orderUpdated', data)
+    io.to(`order_${data.id}`).emit('orderUpdated', data)//on('orderUpdated', (data) =>   or    ).emit('orderUpdated'  orderUpdate alag h
 })
 
 eventEmitter.on('orderPlaced', (data) => {

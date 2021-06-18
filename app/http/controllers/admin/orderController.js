@@ -17,6 +17,7 @@ function orderController () {
                 address
             })
             order.save().then(result => {
+                //order populate ,kn sa field me populate karna chate ho ,costtomer id ke throw
                 Order.populate(result, { path: 'customerId' }, (err, placedOrder) => {
                     // req.flash('success', 'Order placed successfully')
 
