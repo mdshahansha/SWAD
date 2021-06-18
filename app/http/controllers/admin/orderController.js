@@ -70,6 +70,17 @@ function orderController () {
                 return res.render('customers/singleOrder', { order })
             }
             return  res.redirect('/')
+        },
+        show(req,res){
+            const order=await Order.findById(req.param.id)
+            //Authorize User (we are cj=heking ki  jo user login h uska order h ki nhi ,ye chij  uski id dehk ke bataeyege)
+
+            if(req.user._id.toString() ===order.costomerId.toString()){
+                res.render('customer/singleOrder',{order:order})
+            }
+            return    res.redirect('/');
+            
+
         }
     }
 }
