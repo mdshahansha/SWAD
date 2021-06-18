@@ -9,6 +9,12 @@ function statusController(){
             },
             {
                 status:req.body.status
+            },
+            (err,data)=>{
+                if(err){
+                   return res.redirect('/admin/orders')
+                }
+                res.redirect('/admin/orders');
             }
             )
         }
