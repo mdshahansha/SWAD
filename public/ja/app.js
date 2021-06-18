@@ -26934,6 +26934,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//app.js ,ye normal js h    ,jo decide karkgerta h ki ksese y page react karega
 
 
 
@@ -26992,7 +26993,8 @@ function updateStatus(order) {
     status.classList.remove('step-completed');
     status.classList.remove('current');
   });
-  var stepCompleted = true;
+  var stepCompleted = true; //    kn si  status bhi update hui h 
+
   statuses.forEach(function (status) {
     var dataProp = status.dataset.status;
 

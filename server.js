@@ -64,7 +64,7 @@ app.use(expressLayout)
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs')
 
-//all routes house
+//all routes house 
 require('./routes/web')(app)
 app.use((req, res) => {
     res.status(404).render('errors/404')
@@ -73,3 +73,23 @@ app.use((req, res) => {
 const server = app.listen(PORT , () => {
             console.log(`Listening on port ${PORT}`)
         })
+
+
+        // Socket
+
+const io = require('socket.io')(server)
+io.on('connection', (socket) => {
+      // Join
+      socket.on('join', (orderId) => {
+        socket.join(orderId)
+      })
+})
+
+eventEmitter.on('orderUpdated', (data) => {
+    io.to(`order_${data.id}`).emit('orderUpdated', data)
+})
+
+eventEmitter.on('orderPlaced', (data) => {
+    io.to('adminRoom').emit('orderPlaced', data)
+})
+

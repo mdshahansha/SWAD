@@ -1,3 +1,6 @@
+//app.js ,ye normal js h    ,jo decide karkgerta h ki ksese y page react karega
+
+
 import axios from 'axios'
 import Noty from 'noty'
 import { initAdmin } from './admin'
@@ -60,6 +63,7 @@ function updateStatus(order) {
        status.classList.remove('current')
    })
    let stepCompleted = true;
+//    kn si  status bhi update hui h 
    statuses.forEach((status) => {
       let dataProp = status.dataset.status
       if(stepCompleted) {
