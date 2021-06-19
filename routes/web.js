@@ -8,7 +8,7 @@ const statusController = require('../app/http/controllers/admin/statusController
 // Middlewares 
 const guest = require('../app/http/middlewares/guest')
 const auth = require('../app/http/middlewares/auth')
-// const admin = require('../app/http/middlewares/admin')
+const admin = require('../app/http/middlewares/admin')
 
 function initRoutes(app) {
     app.get('/', homeController().index)

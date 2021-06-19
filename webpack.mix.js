@@ -10,8 +10,9 @@ let mix = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
+console.log('1234')
 //1st parameter is  from where we take and 2nd apratmeter  where we like to store
-mix.js('resources/js/app.js', 'public/ja/app.js').sass('resources/scss/app.scss', 'public/css/app.css');
+mix.js('resources/js/app.js', 'public/js/app.js').sass('resources/scss/app.scss', 'public/css/app.css');
 
 // Full API
 // mix.js(src, output);
