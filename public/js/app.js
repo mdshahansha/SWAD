@@ -27855,10 +27855,38 @@ function initAdmin(socket) {
 /*!************************************!*\
   !*** ./resources/js/apiService.js ***!
   \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: placeOrder */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "placeOrder", function() { return placeOrder; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_1__);
 
 
+function placeOrder(formObject) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/orders', formObject).then(function (res) {
+    new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
+      type: 'success',
+      timeout: 1000,
+      text: res.data.message,
+      progressBar: false
+    }).show();
+    setTimeout(function () {
+      window.location.href = '/customer/orders';
+    }, 1000);
+  })["catch"](function (err) {
+    new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
+      type: 'success',
+      timeout: 1000,
+      text: err.res.data.message,
+      progressBar: false
+    }).show();
+  });
+}
 
 /***/ }),
 
@@ -27878,7 +27906,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _stripe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./stripe */ "./resources/js/stripe.js");
+/* harmony import */ var _stripe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./stripe */ "./resources/js/stripe.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -27966,7 +27994,7 @@ function updateStatus(order) {
 }
 
 updateStatus(order);
-Object(_stripe__WEBPACK_IMPORTED_MODULE_5__["initStripe"])(); // Socket
+Object(_stripe__WEBPACK_IMPORTED_MODULE_4__["initStripe"])(); // Socket
 
 var socket = io(); // Join
 
@@ -28010,8 +28038,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _stripe_stripe_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @stripe/stripe-js */ "./node_modules/@stripe/stripe-js/dist/stripe.esm.js");
-/* harmony import */ var _apiService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./apiService */ "./resources/js/apiService.js");
-/* harmony import */ var _apiService__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apiService__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _apiService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./apiService */ "./resources/js/apiService.js");
 !(function webpackMissingModule() { var e = new Error("Cannot find module './CardWidget'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
@@ -28127,7 +28154,7 @@ function _initStripe() {
                           }
 
                           // Ajax
-                          Object(_apiService__WEBPACK_IMPORTED_MODULE_3__["placeOrder"])(formObject);
+                          Object(_apiService__WEBPACK_IMPORTED_MODULE_2__["placeOrder"])(formObject);
                           return _context.abrupt("return");
 
                         case 8:
@@ -28137,7 +28164,7 @@ function _initStripe() {
                         case 10:
                           token = _context.sent;
                           formObject.stripeToken = token.id;
-                          Object(_apiService__WEBPACK_IMPORTED_MODULE_3__["placeOrder"])(formObject); // // Verify card
+                          Object(_apiService__WEBPACK_IMPORTED_MODULE_2__["placeOrder"])(formObject); // // Verify card
                           // stripe.createToken(card).then((result) => {
                           //     formObject.stripeToken = result.token.id;
                           //     placeOrder(formObject);
@@ -28178,7 +28205,7 @@ function _initStripe() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n  ╷\n1 │ @import './variables';\r\n  │         ^^^^^^^^^^^^^\n  ╵\n  E:\\Full Stack\\S.W.A.D\\resources\\scss\\app.scss 1:9  root stylesheet\n    at E:\\Full Stack\\S.W.A.D\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at E:\\Full Stack\\S.W.A.D\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\Full Stack\\S.W.A.D\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (E:\\Full Stack\\S.W.A.D\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at E:\\Full Stack\\S.W.A.D\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:93283:16)\n    at _render_closure1.call$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:81648:12)\n    at _RootZone.runBinary$3$3 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:27468:18)\n    at _FutureListener.handleError$1 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26017:19)\n    at _Future__propagateToListeners_handleError.call$0 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26315:49)\n    at Object._Future__propagateToListeners (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4544:77)\n    at _Future._completeError$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26147:9)\n    at _AsyncAwaitCompleter.completeError$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:25801:12)\n    at Object._asyncRethrow (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4343:17)\n    at E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:12868:20\n    at _wrapJsFunctionForAsync_closure.$protected (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4368:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:25822:12)\n    at _awaitOnObject_closure0.call$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:25814:25)\n    at _RootZone.runBinary$3$3 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:27468:18)\n    at _FutureListener.handleError$1 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26017:19)\n    at _Future__propagateToListeners_handleError.call$0 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26315:49)\n    at Object._Future__propagateToListeners (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4544:77)\n    at _Future._completeError$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26147:9)\n    at _AsyncAwaitCompleter.completeError$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:25801:12)\n    at Object._asyncRethrow (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4343:17)\n    at E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:18133:20\n    at _wrapJsFunctionForAsync_closure.$protected (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4368:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:25822:12)\n    at _awaitOnObject_closure0.call$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:25814:25)\n    at _RootZone.runBinary$3$3 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:27468:18)\n    at _FutureListener.handleError$1 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26017:19)\n    at _Future__propagateToListeners_handleError.call$0 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26315:49)\n    at Object._Future__propagateToListeners (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4544:77)\n    at _Future._completeError$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:26147:9)\n    at _AsyncAwaitCompleter.completeError$2 (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:25801:12)\n    at Object._asyncRethrow (E:\\Full Stack\\S.W.A.D\\node_modules\\sass\\sass.dart.js:4343:17)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
