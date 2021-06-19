@@ -27787,6 +27787,27 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/CardWidget.js":
+/*!************************************!*\
+  !*** ./resources/js/CardWidget.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var CardWidget = function CardWidget(stripe) {
+  _classCallCheck(this, CardWidget);
+
+  _defineProperty(this, "stripe", null);
+
+  this.stripe = stripe;
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin.js":
 /*!*******************************!*\
   !*** ./resources/js/admin.js ***!
@@ -28039,7 +28060,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _stripe_stripe_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @stripe/stripe-js */ "./node_modules/@stripe/stripe-js/dist/stripe.esm.js");
 /* harmony import */ var _apiService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./apiService */ "./resources/js/apiService.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './CardWidget'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _CardWidget__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CardWidget */ "./resources/js/CardWidget.js");
+/* harmony import */ var _CardWidget__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_CardWidget__WEBPACK_IMPORTED_MODULE_4__);
 
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -28114,7 +28136,7 @@ function _initStripe() {
             paymentType.addEventListener('change', function (e) {
               if (e.target.value === 'card') {
                 // Display Widget
-                card = new !(function webpackMissingModule() { var e = new Error("Cannot find module './CardWidget'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(stripe);
+                card = new _CardWidget__WEBPACK_IMPORTED_MODULE_4__["CardWidget"](stripe);
                 card.mount();
               } else {
                 card.destroy();
