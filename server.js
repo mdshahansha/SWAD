@@ -4,7 +4,7 @@ const app = express()
 const ejs = require('ejs')
 const path = require('path')
 const expressLayout = require('express-ejs-layouts')
-const PORT =  3000;//process.env.PORT ||
+const PORT = 3000;//process.env.PORT || 
 const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('express-flash')
@@ -64,7 +64,6 @@ app.use(expressLayout)
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs')
 
-//all routes house 
 require('./routes/web')(app)
 app.use((req, res) => {
     res.status(404).render('errors/404')
@@ -74,8 +73,7 @@ const server = app.listen(PORT , () => {
             console.log(`Listening on port ${PORT}`)
         })
 
-
-        // Socket
+// Socket
 
 const io = require('socket.io')(server)
 io.on('connection', (socket) => {
@@ -86,7 +84,7 @@ io.on('connection', (socket) => {
 })
 
 eventEmitter.on('orderUpdated', (data) => {
-    io.to(`order_${data.id}`).emit('orderUpdated', data)//on('orderUpdated', (data) =>   or    ).emit('orderUpdated'  orderUpdate alag h
+    io.to(`order_${data.id}`).emit('orderUpdated', data)///on('orderUpdated', (data) =>   or    ).emit('orderUpdated'  orderUpdate alag h
 })
 
 eventEmitter.on('orderPlaced', (data) => {

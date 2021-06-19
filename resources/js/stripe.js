@@ -5,6 +5,7 @@ import { CardWidget } from './CardWidget'
 export async function initStripe() {
    const stripe = await loadStripe('pk_test_51Iw7Z9SDHU6i7As7elUU3f0IbmdaarHEYEOVjMMRkg1NVyZnmzEYutTmPXVxHYsmPqQ6Yjqcjx5gbsLDZWuHdZsb00IP8zGIlm');
    let card = null;
+   //
    // function mountWidget() {
    //         const elements = stripe.elements()
 
