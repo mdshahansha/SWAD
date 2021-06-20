@@ -37,7 +37,7 @@ export async function initStripe() {
 
        if(e.target.value === 'card') {
            // Display Widget
-          card = new CardWidget(stripe)
+          card = new CardWidget(stripe)//define new object
           card.mount()
        } else {
            card.destroy()
